@@ -17,6 +17,9 @@ class Funcionario(ABC):
     @abstractmethod
     def AlterarDados(self):
         pass
+    @abstractmethod
+    def ExcluirFunc(self):
+        pass
 
 class Produto(ABC):
 #Interface da classe produto
