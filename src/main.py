@@ -1,10 +1,11 @@
 from Cliente import Cliente
+from Produto import Produto
 
 def main ():
     
-    Otto = Cliente('otto','78945625830','Rua Policarpo Ferreira da Silva,124')
-    Otto.AdicionarCliente()
-    Otto.AlterarDados()
+   Arroz = Produto('arroz', 'camil',7.82, 1000)
+   Arroz.AdicionarProduto()
+   Arroz.AlterarDadosProduto()
 
 
 
