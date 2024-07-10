@@ -3,6 +3,7 @@ from typing import Type
 from datetime import date
 
 lista_produtos = [] #Lista vazia de produtos
+lista_filtros = [] #Lista de filtros
 class Estoque(Produto):
     """"
 Classe responsável por gerenciar quantidades de produtos do Mercado
@@ -42,12 +43,15 @@ Classe responsável por gerenciar quantidades de produtos do Mercado
         else:
             print("Produto não disponível. Tente novamente.")
     
-    arroz = Produto('arroz',' camil', 7.82,100)
+    
+
+    
+    arroz = Produto('arroz','camil', 7.82,100)
     AdicionarProduto(arroz)
     feijao = Produto('feijao', 'seu joao', 7.12,100)
     AdicionarProduto(feijao)
-    
-    FiltroTipoProduto('arroz')
+    produto2 = Produto('arroz','nova serrana', 6.85, 80)
+    AdicionarProduto(produto2)
 
 
 
