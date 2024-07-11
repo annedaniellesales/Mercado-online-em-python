@@ -46,11 +46,11 @@ Classe responsável por gerenciar quantidades de produtos do Mercado
     
 
     
-    arroz = Produto('arroz','camil', 7.82,100)
+    arroz = Produto('arroz','camil', 7.82,100, 1.02)
     AdicionarProduto(arroz)
-    feijao = Produto('feijao', 'seu joao', 7.12,100)
+    feijao = Produto('feijao', 'seu joao', 7.12,100,1.02)
     AdicionarProduto(feijao)
-    produto2 = Produto('arroz','nova serrana', 6.85, 80)
+    produto2 = Produto('arroz','nova serrana', 6.85, 80,1.02)
     AdicionarProduto(produto2)
 
 
