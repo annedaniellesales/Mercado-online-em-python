@@ -12,6 +12,21 @@ Classe responsável por representar os clientes cadastrados do mercado.
         self._CPF = CPF
         self._endereco = endereco
 
+    def ValidarCliente() -> None:
+        validando_CPF = str(input("Se identifique, digite seu CPF:"))
+        clientes_filtrados = [cliente for cliente in Lista_clientes if cliente._CPF == validando_CPF]
+        if clientes_filtrados:
+            for cliente in clientes_filtrados:
+                print(f"Bem vindo {cliente._nome}, prossiga com suas compras.")
+        else:
+            print("Cliente não cadastrado")
+            nome = str(input("Digite seu nome completo:"))
+            endereco = str(input("Digite seu endereco:"))
+            novo_cliente = Cliente(nome,validando_CPF, endereco)
+            print("Cliente cadastrado com sucesso! Prossiga com suas compras.")
+
+
+
     def AdicionarCliente(cliente:Type[Cliente]) -> None:
     #Método responsável por adicionar um cliente na lista
     #Tratamento de erro 1 - Verificar se o cliente já existe no sistema
@@ -35,3 +50,6 @@ Classe responsável por representar os clientes cadastrados do mercado.
         else:
             print("Cliente não cadastrado. Tente novamente.")
     
+#ana = Cliente('ana', '70261392662', 'Rua arlindo')
+#ana.AdicionarCliente()
+#ana.ValidarCliente()

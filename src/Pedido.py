@@ -10,16 +10,15 @@ class Pedido(Estoque):
     """
  Classe responsável por realizar o pedido do cliente
  """
-
-    print("Olá, você está na aba de Pedidos:\n")
     def FazerPedido():
+        print("Olá, você está na aba de Pedidos:\n")
         #Método responsável por inserir um produto no carrinho
-        filtro = str(input("Digite o tipo de produto que voce deseja:"))
+        filtro = str(input("Qual tipo de produto você deseja?:"))
         produtos_filtrados = [produto for produto in lista_produtos if produto._tipo == filtro]  #Filtra os produtos que existem no estoque
         if produtos_filtrados:
             for produto in produtos_filtrados:
-                print(f"{produto._marca}, {produto._preco}")
-        marca = str(input(f"Digite a marca de {produto._tipo} da lista que voce deseja:")) #Filtra os produtos que existem no estoque
+                print(f"{produto._marca}, {round(produto._preco,2)}")
+        marca = str(input(f"Das marcas listadas de {produto._tipo}, qual voce deseja?")) #Filtra os produtos que existem no estoque
         produtos_filtrados = [produto for produto in lista_produtos if produto._marca == marca]
         if produtos_filtrados:
             for produto in produtos_filtrados:
@@ -31,11 +30,12 @@ class Pedido(Estoque):
                 Carrinho.append(produto) #Insere o produto desejado na lista Carrinho
                 print("Produto adicionado no carrinho com sucesso!\n")
 
+
     def ExibirCarrinho():
     #Exibe todos os items que estão no carrinho
         for produto in Carrinho:
             print("Os produtos do seu carrinho são:\n")
-            print(f"{produto._tipo}| {produto._marca}| {produto._peso} kg| R${produto._preco}| {produto._qtd} und")
+            print(f"{produto._tipo}| {produto._marca}| {produto._peso} kg| R${round(produto._preco,2)}| {produto._qtd} und")
 
     def EditarCarrinho():
     #Método responsável por excluir ou editar quantidade de produtos da lista Carrinho
@@ -47,7 +47,7 @@ class Pedido(Estoque):
             if produtos_filtrados:
                 for produto in produtos_filtrados:
                     print(f"Esses são as marcas de {excluir_tipo} que estão no carrinho:")
-                    print(f"{produto._marca}| {produto._preco}")
+                    print(f"{produto._marca}| {round(produto._preco,2)}")
             excluir_marca = str(input(f"Digite a marca de {excluir_tipo} que deseja excluir:"))
             produtos_filtrados = [produto for produto in Carrinho if produto._marca == excluir_marca]
             if produtos_filtrados:
@@ -63,7 +63,7 @@ class Pedido(Estoque):
                 if produtos_filtrados:
                     for produto in produtos_filtrados:
                          print(f"Esses são as marcas de {editar_tipo} que estão no carrinho:")
-                         print(f"{produto._marca} |{produto._preco}| {produto._qtd} und")
+                         print(f"{produto._marca} |{round(produto._preco,2)}| {produto._qtd} und")
                 editar_marca = str(input(f"Que marca de {editar_tipo} você quer editar a quant.?"))
                 produto._preco = produto._preco/produto._qtd
                 produtos_filtrados = [produto for produto in Carrinho if produto._marca == editar_marca]
@@ -71,14 +71,14 @@ class Pedido(Estoque):
                 if produtos_filtrados:
                     for produto in Carrinho:
                         produto._preco *= produto._qtd
-                        print(f"{produto._marca}| {produto._preco} | {produto._qtd}")
+                        print(f"{produto._marca}| {round(produto._preco,2)} | {produto._qtd}")
                 print("Quantidade de items alterado com sucesso!")
     
     def FinalizarCompra():
-         print("Os produtos do seu carrinho são:\n")
+    #Escolhe o método de pagamento e finaliza a compra
          valor_compra = 0
          for produto in Carrinho:
-            print(f"{produto._tipo}| {produto._marca}| {produto._peso} kg| R${produto._preco}|{produto._qtd} und")
+            print(f"{produto._tipo}| {produto._marca}| {produto._peso} kg| R${round(produto._preco,2)}|{produto._qtd} und")
             valor_compra += produto._preco
          print('\n')
          print(f"O Valor da sua compra foi R${round(valor_compra,3)}\nQual forma de pagamento?\n1-Vale Alimentação\n2-Cartão crédito ou debito\n3-Pix")
@@ -87,7 +87,3 @@ class Pedido(Estoque):
          time.sleep(2)
          print("\nPagamento realizado com sucesso!\nRetire seus recebidos\nObrigado,volte sempre!")
 
-
-    FazerPedido()
-    FazerPedido()
-    FinalizarCompra()
