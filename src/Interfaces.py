@@ -3,8 +3,5 @@ from abc import ABC, abstractmethod
 class Cliente(ABC):
 #Interface da classe cliente
     @abstractmethod
-    def AdicionarCliente(self):
-        pass
-    @abstractmethod
-    def AlterarDados(self):
+    def ValidarCliente(self):
         pass

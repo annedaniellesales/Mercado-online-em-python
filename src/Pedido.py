@@ -1,6 +1,5 @@
 from Estoque import Estoque
 from Estoque import lista_produtos
-from Produto import Produto
 from typing import Type
 import time
 
@@ -81,9 +80,10 @@ class Pedido(Estoque):
             print(f"{produto._tipo}| {produto._marca}| {produto._peso} kg| R${round(produto._preco,2)}|{produto._qtd} und")
             valor_compra += produto._preco
          print('\n')
-         print(f"O Valor da sua compra foi R${round(valor_compra,3)}\nQual forma de pagamento?\n1-Vale Alimentação\n2-Cartão crédito ou debito\n3-Pix")
-         forma_pagamento = input()
+         forma_pagamento = input(f"O Valor da sua compra foi R${round(valor_compra,3)}\nQual forma de pagamento?\n1-Vale Alimentação\n2-Cartão crédito ou debito\n3-Pix")
+         entrega = str(input("Deseja o serviço de entrega gratuito?"))
          print("Processamento pagamento...")
          time.sleep(2)
          print("\nPagamento realizado com sucesso!\nRetire seus recebidos\nObrigado,volte sempre!")
 
+    

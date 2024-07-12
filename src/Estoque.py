@@ -25,7 +25,7 @@ Classe responsável por gerenciar quantidades de produtos do Mercado
             lista_produtos.append(novo_produto)
             print("Produto inserido no estoque.")
         if op == 'nao':
-            print("Então ta bom.")
+            print("Operação cancelada\n")
      else:
         marca = str(input(f"Qual a marca de {filtro}?"))
         preco = str(input(f"Qual preço unitário de {filtro}?"))
@@ -58,7 +58,7 @@ Classe responsável por gerenciar quantidades de produtos do Mercado
         for produto in lista_produtos:
             valor += (produto._preco * produto._qtd)
             peso += (produto._peso * produto._qtd)
-        print(f"O valor de {peso}kg de produtos totais é R${valor}")
+        print(f"O valor de {peso}kg de produtos totais é R${round(valor,2)}")
     
     def FiltroTipoProduto() -> None:
         filtro = str(input("Digite o tipo que deseja filtrar:"))
